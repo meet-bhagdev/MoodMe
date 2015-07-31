@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to Mood Me! </h1>
+    <p class="lead">Just give us your data we will do the rest!!</p>
+    <p><a href="https://dashboard.microsofthealth.com" target="_blank" class="btn btn-primary btn-lg">Give us your data &raquo;</a></p>
+</div>
+
+
+@model MyViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(x => x.File)
+        @Html.TextBoxFor(x => x.File, new { type = "file" })
+        @Html.ValidationMessageFor(x => x.File)
+    </div>
+    <div>
+        <label for="file2"></label>
+        <input type="file" name="files" id="file2" />
+    </div>
+    <br />
+    <div>
+        <button type="submit">Upload</button>
+    </div>
+}
+
